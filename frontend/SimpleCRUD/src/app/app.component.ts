@@ -18,7 +18,7 @@ export class AppComponent {
       email: (document.getElementById('email') as HTMLInputElement).value
     };
 
-    this.http.post('http://localhost:3000/users', formData)
+    this.http.post('http://128.199.205.140:3000/users', formData)
       .subscribe(response => {
         console.log('API Response:', response);
         // Reset form after successful submission
