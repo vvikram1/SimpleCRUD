@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const cors = require('cors');
 
 // Create a new Pool instance with connection details
 const pool = new Pool({
@@ -32,6 +33,14 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
+const corsOptions = {
+  origin: '*', // Allow requests from this origin
+  methods: 'GET,POST', // Allow specified HTTP methods
+  allowedHeaders: 'Content-Type,Authorization', // Allow specified headers
+};
+
+// Use CORS middleware with options
+app.use(cors(corsOptions));
 
 // Validate email format
 function validateEmail(email) {
